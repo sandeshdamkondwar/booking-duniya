@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 @import url("font-awesome.min.css");
-/*@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Droid+Serif:700");*/
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Droid+Serif:700");
 
 /*********************************************************************************/
 /* Basic                                                                         */
@@ -692,7 +692,7 @@
 
         #header h1
         {
-            /*font-family: 'Droid Serif';*/
+            font-family: 'Droid Serif';
             font-weight: 700;
             color: #ed786a;
             text-shadow: 0.05em 0.075em 0 rgba(0,0,0,0.1);
@@ -781,6 +781,22 @@
                     {
                         color: #ED786A;
                     }
+
+/*********************************************************************************/
+/* Entered data previous page                                                    */
+/*********************************************************************************/
+
+.recieved-data {
+    text-align: center;
+}
+
+.badge {
+    background: #F5F5F5;
+    padding: 5px 1em;
+    margin-right: 1em;
+    display: inline-block;
+    margin-bottom: 10px;
+}
 
 /*********************************************************************************/
 /* Seat Layout                                                                   */
