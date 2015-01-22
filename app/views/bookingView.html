@@ -1,0 +1,79 @@
+<!-- Main -->
+<div id="main-wrapper">
+    <div id="main" class="container">
+        <div class="row recieved-data">
+            <div class="12u">
+                <span class="badge">Today (19 Jan)</span>
+                <span class="badge">The Hobbit</span>
+                <span class="badge">Cinepolis, Magarpatta</span>
+                <span class="badge">10:30</span>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Sidebar -->
+            <div id="sidebar" class="4u">
+
+                <!-- Selction Area -->
+                <section>
+                    <ul class="divided">
+                        <li>
+                            <!-- Current Selection -->
+                            <article class="box excerpt">
+                            <form>
+                                <label for="totalSeats">Total Seats</label>
+                                <input class="u-full-width" type="number" min="1" max="10" placeholder="Total Seats" id="totalSeats" ng-model="quantity" value="">
+                                <br>
+                                <label for="txtCategory">Category</label>
+                                <select class="u-full-width category" id="txtCategory" ng-model="categorySelected">
+                                    <option value="" disabled selected>-- Select Category --</option>
+                                    <option ng-repeat="category in categories" value="{{ category }}">{{ category }}</option>
+                                </select>
+                                <br>
+                                <input type="submit" value="Book Tickets" disabled="">
+                            </form>
+                            </article>
+                        </li>
+
+                    </ul>
+                </section>
+            </div>
+            <!-- End Sidebar -->
+
+            <!-- Content -->
+            <div id="content" class="8u">
+                <div ng-if="categorySelected !== undefined">
+                    <div class="category-title">Category - <span>{{categorySelected}}</span></div>
+                </div>
+                <div class="seats">
+                    <div ng-if="categorySelected === undefined">
+                        <span class="center no-category">Please select "Total Seats" and "Category"</span>
+                    </div>
+                    <div ng-repeat="(rowId, rowSeats) in seats[categorySelected]" class="seats-row">
+                        <span ng-repeat="seat in rowSeats" class="seat"
+                            style="visibility: {{seat.hidden === true ? 'hidden' : 'visible'}}"
+                            status="{{seat.available === true ? 'available' : 'unavailable'}}" data-row-id="{{ rowId }}"></span>
+                    </div>
+                </div>
+                <div ng-if="categorySelected !== undefined">
+                    <div class="screen">Screen</div>
+                    <div class="seat-explanation">
+                        <span class="seat-desc-group">
+                            <span class="seat" status="available"></span>
+                            <span class="span-desc">Available</span>
+                        </span>
+                        <span class="seat-desc-group">
+                            <span class="seat" status="unavailable"></span>
+                            <span class="span-desc">Unavailable</span>
+                        </span>
+                        <span class="seat-desc-group">
+                            <span class="seat" status="booked"></span>
+                            <span class="span-desc">Selected seats</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- End Content -->
+        </div>
+    </div>
+</div>
+<!-- End Main -->
