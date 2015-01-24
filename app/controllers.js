@@ -125,16 +125,18 @@ function BookingController ($scope, $http) {
                 else break; // We got firstNumber here
             }
 
-            // Now in rowId row check if there is just one seat on the left
-            var seatIndex = findWithAttr($scope.seats[category][rowId], 'number', firstNumber);
-            var prevSeat = $scope.seats[category][rowId][seatIndex - 1];
-            var prevToPrevSeat = $scope.seats[category][rowId][seatIndex - 2];
-
+            var seatIndex = findWithAttr($scope.seats[category][rowId], 'number', lastNumber);
             var nextToNextSeat = $scope.seats[category][rowId][seatIndex + 2];
             // User can leave one seat in between while doing muliple selection
             if (nextToNextSeat !== undefined && nextToNextSeat.booked === true) {
                 return false;
             }
+
+            // Now in rowId row check if there is just one seat on the left
+            seatIndex = findWithAttr($scope.seats[category][rowId], 'number', firstNumber);
+            var prevSeat = $scope.seats[category][rowId][seatIndex - 1];
+            var prevToPrevSeat = $scope.seats[category][rowId][seatIndex - 2];
+
 
             if (prevSeat && !prevSeat.hidden && prevSeat.available &&
                 (!prevToPrevSeat || prevToPrevSeat.hidden || !prevToPrevSeat.available)) {
