@@ -909,7 +909,7 @@
     }
 
     .seat {
-        width: 4%;
+        width: 7%;
         height: 25px;
         display: inline-block;
         background-image: url("../images/seats/seat-unavailable.svg");
