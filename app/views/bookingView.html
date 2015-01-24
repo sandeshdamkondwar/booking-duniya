@@ -39,8 +39,8 @@
                                     ng-model="quantity" value="">
                                 <br>
                                 <input type="submit" value="Book Tickets"
-                                    ng-class="{'disabled' : selection.seats.length === 0}"
-                                    ng-disabled="selection.seats.length === 0">
+                                    ng-class="{'hide' : selection.seats.length !== quantity}"
+                                    ng-disabled="selection.seats.length !== quantity">
                             </form>
                             </article>
                         </li>
