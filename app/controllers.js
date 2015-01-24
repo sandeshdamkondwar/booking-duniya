@@ -69,12 +69,23 @@ function BookingController ($scope, $http) {
                 if (!isValidSelection()) {
                     $scope.resetSelection();
                     $scope.selectionInvalid = true;
+                    shakeWarning();
                     return;
                 }
             }
 
             $scope.selectionInvalid = false;
         };
+
+        function shakeWarning () {
+            $(".selection-invalid")
+                .addClass('shake')
+                .delay(1000)
+                .queue(function() {
+                    $(this).removeClass("shake");
+                    $(this).dequeue();
+                });
+        }
 
         function findWithAttr(array, attr, value) {
             for (var i = 0; i < array.length; i += 1) {
