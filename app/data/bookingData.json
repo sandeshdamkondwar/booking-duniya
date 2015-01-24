@@ -351,12 +351,16 @@
                     "number": 1
                 }, {
                     "hidden": false,
-                    "available": true,
+                    "available": false,
                     "number": 2
                 }, {
                     "hidden": false,
                     "available": false,
                     "number": 3
+                }, {
+                    "hidden": true
+                }, {
+                    "hidden": true
                 }, {
                     "hidden": false,
                     "available": true,
@@ -369,14 +373,6 @@
                     "hidden": false,
                     "available": true,
                     "number": 6
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 7
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 8
                 }, {
                     "hidden": true
                 }, {
@@ -392,7 +388,7 @@
                     "number": 1
                 }, {
                     "hidden": false,
-                    "available": true,
+                    "available": false,
                     "number": 2
                 }, {
                     "hidden": false,
@@ -402,6 +398,10 @@
                     "hidden": false,
                     "available": true,
                     "number": 4
+                }, {
+                    "hidden": true
+                }, {
+                    "hidden": true
                 }, {
                     "hidden": false,
                     "available": true,
@@ -419,21 +419,13 @@
                     "available": true,
                     "number": 8
                 }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 9
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 10
-                }, {
                     "hidden": true
                 }
             ],
             "J": [
                 {
                     "hidden": false,
-                    "available": false,
+                    "available": true,
                     "number": 1
                 }, {
                     "hidden": false,
@@ -484,7 +476,7 @@
             "K": [
                 {
                     "hidden": false,
-                    "available": false,
+                    "available": true,
                     "number": 1
                 }, {
                     "hidden": false,
@@ -535,7 +527,7 @@
             "L": [
                 {
                     "hidden": false,
-                    "available": false,
+                    "available": true,
                     "number": 1
                 }, {
                     "hidden": false,
@@ -586,7 +578,7 @@
             "M": [
                 {
                     "hidden": false,
-                    "available": false,
+                    "available": true,
                     "number": 1
                 }, {
                     "hidden": false,
@@ -637,7 +629,7 @@
             "N": [
                 {
                     "hidden": false,
-                    "available": false,
+                    "available": true,
                     "number": 1
                 }, {
                     "hidden": false,
@@ -687,7 +679,7 @@
             ]
         },
         "bronze": {
-            "S": [
+            "O": [
                 {
                     "hidden": true
                 }, {
@@ -698,16 +690,57 @@
                     "number": 1
                 }, {
                     "hidden": false,
-                    "available": true,
+                    "available": false,
                     "number": 2
                 }, {
                     "hidden": false,
                     "available": false,
                     "number": 3
                 }, {
+                    "hidden": true
+                }, {
+                    "hidden": true
+                }, {
                     "hidden": false,
                     "available": true,
                     "number": 4
+                }, {
+                    "hidden": false,
+                    "available": true,
+                    "number": 5
+                }, {
+                    "hidden": false,
+                    "available": true,
+                    "number": 6
+                }, {
+                    "hidden": true
+                }, {
+                    "hidden": true
+                }
+            ],
+            "P": [
+                {
+                    "hidden": true
+                }, {
+                    "hidden": false,
+                    "available": false,
+                    "number": 1
+                }, {
+                    "hidden": false,
+                    "available": false,
+                    "number": 2
+                }, {
+                    "hidden": false,
+                    "available": true,
+                    "number": 3
+                }, {
+                    "hidden": false,
+                    "available": true,
+                    "number": 4
+                }, {
+                    "hidden": true
+                }, {
+                    "hidden": true
                 }, {
                     "hidden": false,
                     "available": true,
@@ -726,316 +759,12 @@
                     "number": 8
                 }, {
                     "hidden": true
-                }, {
-                    "hidden": true
                 }
             ],
-            "T": [
-                {
-                    "hidden": true
-                }, {
-                    "hidden": false,
-                    "available": false,
-                    "number": 1
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 2
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 3
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 4
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 5
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 6
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 7
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 8
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 9
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 10
-                }, {
-                    "hidden": true
-                }
-            ],
-            "U": [
+            "Q": [
                 {
                     "hidden": false,
-                    "available": false,
-                    "number": 1
-                }, {
-                    "hidden": false,
                     "available": true,
-                    "number": 2
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 3
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 4
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 5
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 6
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 7
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 8
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 9
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 10
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 11
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 12
-                }
-            ],
-            "V": [
-                {
-                    "hidden": false,
-                    "available": false,
-                    "number": 1
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 2
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 3
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 4
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 5
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 6
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 7
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 8
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 9
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 10
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 11
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 12
-                }
-            ],
-            "W": [
-                {
-                    "hidden": false,
-                    "available": false,
-                    "number": 1
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 2
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 3
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 4
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 5
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 6
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 7
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 8
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 9
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 10
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 11
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 12
-                }
-            ],
-            "X": [
-                {
-                    "hidden": false,
-                    "available": false,
-                    "number": 1
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 2
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 3
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 4
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 5
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 6
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 7
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 8
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 9
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 10
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 11
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 12
-                }
-            ],
-            "Y": [
-                {
-                    "hidden": false,
-                    "available": false,
-                    "number": 1
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 2
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 3
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 4
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 5
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 6
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 7
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 8
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 9
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 10
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 11
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 12
-                }
-            ],
-            "Z": [
-                {
-                    "hidden": false,
-                    "available": false,
                     "number": 1
                 }, {
                     "hidden": false,
