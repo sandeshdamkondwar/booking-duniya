@@ -24,24 +24,24 @@
                         <li>
                             <!-- Current Selection -->
                             <article class="excerpt">
-                            <form class="box">
-                                <label for="txtCategory">Category</label>
-                                <select class="u-full-width category" id="txtCategory" ng-model="categorySelected">
-                                    <option value="" disabled selected>-- Select Category --</option>
-                                    <option ng-repeat="category in categories" value="{{ category }}">{{ category | uppercase }} - {{ screenDistance[category] }} away from screen</option>
-                                </select>
-                                <br>
-                                <label for="totalSeats">Total Seats</label>
-                                <input class="u-full-width" type="number"
-                                    min="1" max="10"
-                                    placeholder="Total Seats" id="totalSeats"
-                                    ng-change="resetSelection()"
-                                    ng-model="quantity" value="">
-                                <br>
-                                <input type="submit" value="Book Tickets"
-                                    ng-class="{'hide' : selection.seats.length !== quantity}"
-                                    ng-disabled="selection.seats.length !== quantity">
-                            </form>
+                                <form class="box">
+                                    <label for="txtCategory">Category</label>
+                                    <select class="u-full-width category" id="txtCategory" ng-model="categorySelected">
+                                        <option value="" disabled selected>-- Select Category --</option>
+                                        <option ng-repeat="category in categories" value="{{ category }}">{{ category | uppercase }} - {{ screenDistance[category] }} away from screen</option>
+                                    </select>
+                                    <br>
+                                    <label for="totalSeats">Total Seats</label>
+                                    <input class="u-full-width" type="number"
+                                        min="1" max="10"
+                                        placeholder="Total Seats" id="totalSeats"
+                                        ng-change="resetSelection()"
+                                        ng-model="quantity" value="">
+                                    <br>
+                                    <input type="submit" value="Book Tickets"
+                                        ng-class="{'hide' : selection.seats.length !== quantity}"
+                                        ng-disabled="selection.seats.length !== quantity">
+                                </form>
                             </article>
                         </li>
 
@@ -52,6 +52,11 @@
 
             <!-- Content -->
             <div id="content" class="8u">
+                <p class="selection-invalid"
+                    ng-class="{ 'hidden': selectionInvalid !== true }">
+                    <span class="icon fa-exclamation-triangle"></span>
+                    Don't leave single seat available on both side
+                </p>
                 <div class="box seat-selection">
                     <div ng-class="{'hide': categorySelected === undefined || quantity === undefined }"
                         class="category-title">Category - <span>{{categorySelected}}</span><span class="icon fa-certificate {{categorySelected}}"></span></div>
