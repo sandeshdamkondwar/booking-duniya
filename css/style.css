@@ -819,7 +819,6 @@
 
     .screen,
     .category-title {
-        font-size: 1.2em;
         font-weight: 600;
         color: #888;
         text-align: center;
@@ -833,6 +832,23 @@
     .category-title {
         text-transform: uppercase;
         border-bottom: 1px solid #DDD;
+    }
+
+    .category-title .icon {
+        margin-left: 0.5em;
+        text-shadow: 0 0 1px #000;
+    }
+
+    .category-title .icon.gold {
+        color: #FFD700;
+    }
+
+    .category-title .icon.silver {
+        color: #CCC;
+    }
+
+    .category-title .icon.bronze {
+        color: #5B391E;
     }
 
     .screen {

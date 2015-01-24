@@ -54,7 +54,7 @@
             <div id="content" class="8u">
                 <div class="box seat-selection">
                     <div ng-class="{'hide': categorySelected === undefined || quantity === undefined }"
-                        class="category-title">Category - <span>{{categorySelected}}</span></div>
+                        class="category-title">Category - <span>{{categorySelected}}</span><span class="icon fa-certificate {{categorySelected}}"></span></div>
                     <div class="seats">
                         <div ng-if="categorySelected === undefined || quantity === undefined">
                             <span class="center no-category">
