@@ -26,7 +26,7 @@
                             <article class="excerpt">
                                 <form class="box">
                                     <label for="txtCategory" class="shake">Category</label>
-                                    <select class="u-full-width category" id="txtCategory" ng-model="categorySelected">
+                                    <select class="u-full-width category" id="txtCategory" ng-model="categorySelected" ng-change="resetSelection()">
                                         <option value="" disabled selected>-- Select Category --</option>
                                         <option ng-repeat="category in categories" value="{{ category }}">{{ category | uppercase }} - {{ screenDistance[category] }} away from screen</option>
                                     </select>
