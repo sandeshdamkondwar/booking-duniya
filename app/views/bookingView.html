@@ -3,7 +3,7 @@
     <div id="main" class="container">
         <div class="row recieved-data">
             <div class="12u">
-                <div class="previous-selection">
+                <div class="previous-selection box">
                     <h5 class="heading">You selected</h5>
                     <div>
                         <span class="badge" title="Movie"><span class="icon fa-film"></span>{{selection.movie}}</span>
@@ -23,8 +23,8 @@
                     <ul class="divided">
                         <li>
                             <!-- Current Selection -->
-                            <article class="box excerpt">
-                            <form>
+                            <article class="excerpt">
+                            <form class="box">
                                 <label for="txtCategory">Category</label>
                                 <select class="u-full-width category" id="txtCategory" ng-model="categorySelected">
                                     <option value="" disabled selected>-- Select Category --</option>
@@ -52,25 +52,31 @@
 
             <!-- Content -->
             <div id="content" class="8u">
-                <div ng-if="categorySelected !== undefined && quantity !== undefined">
-                    <div class="category-title">Category - <span>{{categorySelected}}</span></div>
-                </div>
-                <div class="seats">
-                    <div ng-if="categorySelected === undefined || quantity === undefined">
-                        <span class="center no-category">
-                            Please select <span class="glow">"Category"</span> & <span class="glow">"Total Seats"</span>
-                        </span>
+                <div class="box seat-selection">
+                    <div ng-class="{'hide': categorySelected === undefined || quantity === undefined }"
+                        class="category-title">Category - <span>{{categorySelected}}</span></div>
+                    <div class="seats">
+                        <div ng-if="categorySelected === undefined || quantity === undefined">
+                            <span class="center no-category">
+                                Please select
+                                <span ng-class="{'glow': categorySelected === undefined}">"Category"</span>
+                                &
+                                <span ng-class="{'glow': quantiy === undefined}">"Total Seats"</span>
+                            </span>
+                        </div>
+                        <div ng-repeat="(row, rowSeats) in seats[categorySelected]" ng-if="quantity !== undefined" class="seats-row">
+                            <span seat ng-repeat="seat in rowSeats" class="seat"
+                                ng-class="{'hidden' : seat.hidden === true, 'booked' : seat.booked === true}"
+                                data-availablity-status="{{ seat.available }}"
+                                data-row-id="{{ row }}"
+                                ng-click="bookTickets($event)"></span>
+                        </div>
                     </div>
-                    <div ng-repeat="(row, rowSeats) in seats[categorySelected]" ng-if="quantity !== undefined" class="seats-row">
-                        <span seat ng-repeat="seat in rowSeats" class="seat"
-                            ng-class="{'hidden' : seat.hidden === true, 'booked' : seat.booked === true}"
-                            data-availablity-status="{{ seat.available }}"
-                            data-row-id="{{ row }}"
-                            ng-click="bookTickets($event)"></span>
-                    </div>
+                    <div ng-class="{'hide': categorySelected === undefined || quantity === undefined }"
+                        class="screen">Screen</div>
                 </div>
+
                 <div ng-if="categorySelected !== undefined && quantity !== undefined">
-                    <div class="screen">Screen</div>
                     <div class="seat-explanation">
                         <span class="seat-desc-group">
                             <span class="seat" data-availablity-status="true"></span>
