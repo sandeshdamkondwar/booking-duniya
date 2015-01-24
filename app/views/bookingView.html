@@ -25,13 +25,13 @@
                             <!-- Current Selection -->
                             <article class="excerpt">
                                 <form class="box">
-                                    <label for="txtCategory">Category</label>
+                                    <label for="txtCategory" class="shake">Category</label>
                                     <select class="u-full-width category" id="txtCategory" ng-model="categorySelected">
                                         <option value="" disabled selected>-- Select Category --</option>
                                         <option ng-repeat="category in categories" value="{{ category }}">{{ category | uppercase }} - {{ screenDistance[category] }} away from screen</option>
                                     </select>
                                     <br>
-                                    <label for="totalSeats">Total Seats</label>
+                                    <label for="totalSeats">Total Seats <span class="warning" ng-class="{'shake': quantity > 10 || quantity === undefined}">(Max 10)</span></label>
                                     <input class="u-full-width" type="number"
                                         min="1" max="10"
                                         placeholder="Total Seats" id="totalSeats"
