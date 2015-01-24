@@ -494,6 +494,14 @@
             text-align: center;
         }
 
+        input[type="button"].disable,
+        input[type="submit"].disable,
+        input[type="reset"].disable,
+        .button.disable
+        {
+            background: grey;
+        }
+
             .button.icon:before
             {
                 position: relative;
@@ -502,45 +510,21 @@
                 top: 0.05em;
             }
 
-            input[type="button"]:hover,
-            input[type="submit"]:hover,
-            input[type="reset"]:hover,
-            .button:hover
+            input[type="button"]:not(.disable):hover,
+            input[type="submit"]:not(.disable):hover,
+            input[type="reset"]:not(.disable):hover,
+            .button:not(.disable):hover
             {
                 background: #fd887a;
             }
 
-            input[type="button"]:active,
-            input[type="submit"]:active,
-            input[type="reset"]:active,
-            .button:active
+            input[type="button"]:not(.disable):active,
+            input[type="submit"]:not(.disable):active,
+            input[type="reset"]:not(.disable):active,
+            .button:not(.disable):active
             {
                 background: #ed786a;
             }
-
-            input[type="button"].alt,
-            input[type="submit"].alt,
-            input[type="reset"].alt,
-            .button.alt
-            {
-                background: #878787;
-            }
-
-                input[type="button"].alt:hover,
-                input[type="submit"].alt:hover,
-                input[type="reset"].alt:hover,
-                .button.alt:hover
-                {
-                    background: #979797;
-                }
-
-                input[type="button"].alt:active,
-                input[type="submit"].alt:active,
-                input[type="reset"].alt:active,
-                .button.alt:active
-                {
-                    background: #878787;
-                }
 
     /* Box */
 
@@ -790,12 +774,29 @@
     text-align: center;
 }
 
+.previous-selection {
+    background: #E8E8E8;
+    padding: 1em .5em;
+}
+
+.previous-selection .heading {
+    margin-bottom: 1em;
+}
+
 .badge {
     background: #F5F5F5;
     padding: 5px 1em;
     margin-right: 1em;
     display: inline-block;
     margin-bottom: 10px;
+    cursor: default;
+    border-radius: 5px;
+    border: 1px solid rgba(172, 172, 172, 0.46);
+    border-bottom-width: 2px;
+}
+
+.badge > .icon {
+    margin-right: 0.5em;
 }
 
 /*********************************************************************************/
@@ -820,6 +821,7 @@
     .category-title {
         background: #808080;
         color: #FFF;
+        border-radius: 10px 10px 0 0;
     }
 
     .category-title {
@@ -832,9 +834,17 @@
         line-height: 10em;
     }
 
+    .no-category > .glow {
+        -webkit-animation: glow 1s ease-in-out infinite alternate;
+        -moz-animation: glow 1s ease-in-out infinite alternate;
+        -o-animation: glow 1s ease-in-out infinite alternate;
+        animation: glow 1s ease-in-out infinite alternate;
+    }
+
     .screen {
           background: #F5F5F5;
           color: #000;
+          border-radius: 0 0 10px 10px;
     }
 
     .seats {
@@ -854,7 +864,6 @@
         vertical-align: bottom;
     }
 
-
     .seat {
         width: 4%;
         height: 25px;
@@ -864,18 +873,43 @@
         background-position: center;
     }
 
-    .seat[status="available"] {
+    .seat.hidden {
+        visibility: hidden;
+    }
+
+    .seat[data-availablity-status="true"] {
         background-image: url("../images/seats/seat-available.svg");
     }
 
-    .seat[status="booking"],
-    .seat[status="available"]:hover {
-        background-image: url("../images/seats/seat-booking.svg");
-    }
-
-    .seat[status="booked"] {
+    .seats-row .seat[data-availablity-status="true"]:hover {
         background-image: url("../images/seats/seat-booked.svg");
     }
+
+    .seat.booked,
+    .seat.booked[data-availablity-status="true"] {
+        background-image: url("../images/seats/seat-booked.svg");
+    }
+
+    @-webkit-keyframes glow {
+        0%, 100% { color: #000; }
+        50% { color: #ED786A; }
+    }
+
+    @-moz-keyframes glow {
+        0%, 100% { color: #000; }
+        50% { color: #ED786A; }
+    }
+
+    @-o-keyframes glow {
+        0%, 100% { color: #000; }
+        50% { color: #ED786A; }
+    }
+
+    @keyframes glow {
+        0%, 100% { color: #000; }
+        50% { color: #ED786A; }
+    }
+
 
 /*********************************************************************************/
 /* Banner                                                                        */

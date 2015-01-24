@@ -1089,6 +1089,7 @@
         "date": "Today (19 Jan)",
         "movie": "The Hobbit",
         "theater": "Cinepolis, Magarpatta",
-        "time": "10:30"
+        "time": "10:30 AM",
+        "seats": []
     }
 }

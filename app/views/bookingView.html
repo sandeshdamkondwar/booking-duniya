@@ -3,10 +3,15 @@
     <div id="main" class="container">
         <div class="row recieved-data">
             <div class="12u">
-                <span class="badge">Today (19 Jan)</span>
-                <span class="badge">The Hobbit</span>
-                <span class="badge">Cinepolis, Magarpatta</span>
-                <span class="badge">10:30</span>
+                <div class="previous-selection">
+                    <h5 class="heading">You selected</h5>
+                    <div>
+                        <span class="badge" title="Movie"><span class="icon fa-film"></span>{{selection.movie}}</span>
+                        <span class="badge" title="Theater"><span class="icon fa-map-marker"></span>{{selection.theater}}</span>
+                        <span class="badge" title="Date"><span class="icon fa-calendar"></span>{{selection.date}}</span>
+                        <span class="badge" title="Time"><span class="icon fa-clock-o"></span>{{selection.time}}</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -20,16 +25,22 @@
                             <!-- Current Selection -->
                             <article class="box excerpt">
                             <form>
-                                <label for="totalSeats">Total Seats</label>
-                                <input class="u-full-width" type="number" min="1" max="10" placeholder="Total Seats" id="totalSeats" ng-model="quantity" value="">
-                                <br>
                                 <label for="txtCategory">Category</label>
                                 <select class="u-full-width category" id="txtCategory" ng-model="categorySelected">
                                     <option value="" disabled selected>-- Select Category --</option>
                                     <option ng-repeat="category in categories" value="{{ category }}">{{ category }}</option>
                                 </select>
                                 <br>
-                                <input type="submit" value="Book Tickets" disabled="">
+                                <label for="totalSeats">Total Seats</label>
+                                <input class="u-full-width" type="number"
+                                    min="1" max="10"
+                                    placeholder="Total Seats" id="totalSeats"
+                                    ng-change="resetSelection()"
+                                    ng-model="quantity" value="">
+                                <br>
+                                <input type="submit" value="Book Tickets"
+                                    ng-class="{'disabled' : selection.seats.length === 0}"
+                                    ng-disabled="selection.seats.length === 0">
                             </form>
                             </article>
                         </li>
@@ -41,24 +52,28 @@
 
             <!-- Content -->
             <div id="content" class="8u">
-                <div ng-if="categorySelected !== undefined">
+                <div ng-if="categorySelected !== undefined && quantity !== undefined">
                     <div class="category-title">Category - <span>{{categorySelected}}</span></div>
                 </div>
                 <div class="seats">
-                    <div ng-if="categorySelected === undefined">
-                        <span class="center no-category">Please select "Total Seats" and "Category"</span>
+                    <div ng-if="categorySelected === undefined || quantity === undefined">
+                        <span class="center no-category">
+                            Please select <span class="glow">"Category"</span> & <span class="glow">"Total Seats"</span>
+                        </span>
                     </div>
-                    <div ng-repeat="(rowId, rowSeats) in seats[categorySelected]" class="seats-row">
-                        <span ng-repeat="seat in rowSeats" class="seat"
-                            style="visibility: {{seat.hidden === true ? 'hidden' : 'visible'}}"
-                            status="{{seat.available === true ? 'available' : 'unavailable'}}" data-row-id="{{ rowId }}"></span>
+                    <div ng-repeat="(row, rowSeats) in seats[categorySelected]" ng-if="quantity !== undefined" class="seats-row">
+                        <span seat ng-repeat="seat in rowSeats" class="seat"
+                            ng-class="{'hidden' : seat.hidden === true, 'booked' : seat.booked === true}"
+                            data-availablity-status="{{ seat.available }}"
+                            data-row-id="{{ row }}"
+                            ng-click="bookTickets($event)"></span>
                     </div>
                 </div>
-                <div ng-if="categorySelected !== undefined">
+                <div ng-if="categorySelected !== undefined && quantity !== undefined">
                     <div class="screen">Screen</div>
                     <div class="seat-explanation">
                         <span class="seat-desc-group">
-                            <span class="seat" status="available"></span>
+                            <span class="seat" data-availablity-status="true"></span>
                             <span class="span-desc">Available</span>
                         </span>
                         <span class="seat-desc-group">
@@ -66,7 +81,7 @@
                             <span class="span-desc">Unavailable</span>
                         </span>
                         <span class="seat-desc-group">
-                            <span class="seat" status="booked"></span>
+                            <span class="seat booked"></span>
                             <span class="span-desc">Selected seats</span>
                         </span>
                     </div>
