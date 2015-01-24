@@ -333,6 +333,7 @@
 
         form
         {
+
         }
 
             form label
@@ -530,6 +531,12 @@
 
         .box
         {
+            background: #F5F5F5;
+            padding: .5em 1em;
+            border: 1px solid #DDD;
+            border-radius: 10px;
+            border-bottom-width: 2px;
+            overflow: hidden;
         }
 
             .box.excerpt
@@ -774,17 +781,12 @@
     text-align: center;
 }
 
-.previous-selection {
-    background: #E8E8E8;
-    padding: 1em .5em;
-}
-
 .previous-selection .heading {
     margin-bottom: 1em;
 }
 
 .badge {
-    background: #F5F5F5;
+    background: #FAFAFA;
     padding: 5px 1em;
     margin-right: 1em;
     display: inline-block;
@@ -811,21 +813,30 @@
 /* Seat Layout                                                                   */
 /*********************************************************************************/
 
+    .seat-selection {
+        padding: 0;
+    }
+
     .screen,
     .category-title {
-        text-align: center;
         font-size: 1.2em;
+        font-weight: 600;
+        color: #888;
+        text-align: center;
         padding: 0.4em;
     }
 
-    .category-title {
-        background: #808080;
-        color: #FFF;
-        border-radius: 10px 10px 0 0;
+    .hide {
+        display: none !important;
     }
 
     .category-title {
         text-transform: uppercase;
+        border-bottom: 1px solid #DDD;
+    }
+
+    .screen {
+        border-top: 1px solid #DDD;
     }
 
     .no-category {
@@ -841,17 +852,11 @@
         animation: glow 1s ease-in-out infinite alternate;
     }
 
-    .screen {
-          background: #F5F5F5;
-          color: #000;
-          border-radius: 0 0 10px 10px;
-    }
-
     .seats {
         width: 100%;
         padding: 1em;
         text-align: center;
-        background: #E5E5E5;
+        background: white;
     }
 
     .seat-explanation {
