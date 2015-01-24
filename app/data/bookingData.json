@@ -625,57 +625,6 @@
                     "available": true,
                     "number": 12
                 }
-            ],
-            "N": [
-                {
-                    "hidden": false,
-                    "available": true,
-                    "number": 1
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 2
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 3
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 4
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 5
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 6
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 7
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 8
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 9
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 10
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 11
-                }, {
-                    "hidden": false,
-                    "available": true,
-                    "number": 12
-                }
             ]
         },
         "bronze": {
