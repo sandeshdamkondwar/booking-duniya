@@ -8,11 +8,8 @@ function BookingController ($scope, $http) {
         $scope.categories = Object.keys(data.seats);
         $scope.screenDistance = data.screenDistance;
 
-        $scope.selectSeat = function() {
-            $scope.visible = !$scope.visible;
-        };
-
         $scope.resetSelection = function () {
+            // Make seat.booked = false for each seat we had selected
             for (var i = 0; i < $scope.selection.seats.length; i++) {
                 var row = $scope.selection.seats[i].row;
                 var number = $scope.selection.seats[i].number;
@@ -69,7 +66,73 @@ function BookingController ($scope, $http) {
             // Mark as complete if selected tickets equals to quatity required
             if (booked === quantity) {
                 $scope.selection.complete = true;
+                if (!isValidSelection()) {
+                    $scope.resetSelection();
+                    $scope.selectionInvalid = true;
+                    return;
+                }
             }
+
+            $scope.selectionInvalid = false;
         };
+
+        function findWithAttr(array, attr, value) {
+            for (var i = 0; i < array.length; i += 1) {
+                if (array[i][attr] === value) {
+                    return i;
+                }
+            }
+        }
+
+        function isValidSelection () {
+            // Checking single seat silos effect
+            // look on right or left two times one by one
+            // If there is just single seat avilable on left side
+            //     then go for right side to check
+            //     If there is just single seat avilable on right side
+            //         Make $scope.selectionInvalid true
+            //     Else make $scope.selectionInvalid false
+            // Else $scope.selectionInvalid false
+
+            // Get starting point
+            // There might be two rows selected/ Multiple selections
+            // There will be a problem in last selection only for sure
+            // So get the row id of the last seat
+            // and check the lowest consecutive number in that row
+
+            var lastSeat = $scope.selection.seats[$scope.selection.seats.length - 1];
+            var rowId = lastSeat.row;
+            var lastNumber = lastSeat.number;
+            var firstNumber = lastNumber;
+            var category = lastSeat.category;
+
+            for (var i = $scope.selection.seats.length - 1;
+                    i >= 1 && ($scope.selection.seats[i] !== undefined && $scope.selection.seats[i].row === rowId);
+                    i--, firstNumber--) {
+                var previousSeat = $scope.selection.seats[i - 1];
+                if (previousSeat.row === rowId && previousSeat.number === firstNumber - 1) continue;
+                else break; // We got firstNumber here
+            }
+
+            // Now in rowId row check if there is just one seat on the left
+            var seatIndex = findWithAttr($scope.seats[category][rowId], 'number', firstNumber);
+            var prevSeat = $scope.seats[category][rowId][seatIndex - 1];
+            var prevToPrevSeat = $scope.seats[category][rowId][seatIndex - 2];
+
+            if (prevSeat && !prevSeat.hidden && prevSeat.available &&
+                (!prevToPrevSeat || prevToPrevSeat.hidden || !prevToPrevSeat.available)) {
+                // Now in rowId row check if there is just one seat on the right
+                seatIndex = findWithAttr($scope.seats[category][rowId], 'number', lastNumber);
+                var nextSeat = $scope.seats[category][rowId][seatIndex + 1];
+                var nextToNextSeat = $scope.seats[category][rowId][seatIndex + 2];
+                console.log(prevSeat, prevToPrevSeat, nextSeat, nextToNextSeat);
+                if (nextSeat && !nextSeat.hidden && nextSeat.available &&
+                    (!nextToNextSeat || nextToNextSeat.hidden || !nextToNextSeat.available)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     });
 }
