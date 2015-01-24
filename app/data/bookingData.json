@@ -73,11 +73,11 @@
                     "number": 6
                 }, {
                     "hidden": false,
-                    "available": false,
+                    "available": true,
                     "number": 7
                 }, {
                     "hidden": false,
-                    "available": false,
+                    "available": true,
                     "number": 8
                 }, {
                     "hidden": true
@@ -1084,6 +1084,11 @@
                 }
             ]
         }
+    },
+    "screenDistance": {
+        "gold": "10 meters",
+        "silver": "7.5 meters",
+        "bronze": "3 meters"
     },
     "selection": {
         "date": "Today (19 Jan)",

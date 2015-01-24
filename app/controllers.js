@@ -6,6 +6,7 @@ function BookingController ($scope, $http) {
         $scope.seats = data.seats;
         $scope.selection = data.selection;
         $scope.categories = Object.keys(data.seats);
+        $scope.screenDistance = data.screenDistance;
 
         $scope.selectSeat = function() {
             $scope.visible = !$scope.visible;
