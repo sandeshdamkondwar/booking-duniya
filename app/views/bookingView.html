@@ -99,6 +99,30 @@
             </div>
             <!-- End Content -->
         </div>
+        <div class="row">
+            <div class="12u">
+                <div class="box ticket">
+                    <h5 class="heading">Your Ticket</h5>
+                    <br>
+                    <div class="row">
+                        <div class="6u col">
+                            <p class="" title="Movie"><strong>Movie</strong>: {{selection.movie}}</p>
+                            <p class="" title="Theater"><strong>Theater</strong>: {{selection.theater}}</p>
+                            <p ng-if="selection.seats.length > 0">
+                                <strong>Seats Booked</strong>:
+                                {{ (selection.seats[0].category | uppercase ) + "-"}}
+                                <span ng-repeat="seat in selection.seats">{{seat.row}}{{seat.number}}{{$last ? '' : ', '}}</span>
+                            </p>
+                        </div>
+                        <div class="6u col">
+                            <p class="right" title="Date"><strong>Date</strong>: {{selection.date}}</p>
+                            <p class="right" title="Time"><strong>Time</strong>: {{selection.time}}</p>
+                            <p class="right"><strong>Booking ID</strong>: BD-2394123</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- End Main -->
